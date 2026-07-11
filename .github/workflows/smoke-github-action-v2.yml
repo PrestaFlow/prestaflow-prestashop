@@ -1,0 +1,49 @@
+name: Smoke test — github-action v2
+
+on:
+  push:
+    branches: [smoke-test/github-action-v2]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  smoke:
+    name: Smoke test with Flashlight
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP 8.2
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: gd
+          tools: composer:v2
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
+
+      - name: Run PrestaFlow (v2 action)
+        id: prestaflow
+        uses: PrestaFlow/github-action@main
+        with:
+          token: ${{ secrets.PRESTAFLOW_TOKEN }}
+          projectId: '42'
+          flashlight: true
+          ps-version: '9.0.0'
+          upload-artifacts: true
+        continue-on-error: true
+
+      - name: Show outputs
+        run: |
+          echo "id=${{ steps.prestaflow.outputs.id }}"
+          echo "report-url=${{ steps.prestaflow.outputs.report-url }}"
+          echo "passed=${{ steps.prestaflow.outputs.passed }}"
+          echo "failed=${{ steps.prestaflow.outputs.failed }}"
+          echo "skipped=${{ steps.prestaflow.outputs.skipped }}"
+          echo "total=${{ steps.prestaflow.outputs.total }}"
+          echo "duration-ms=${{ steps.prestaflow.outputs.duration-ms }}"
+          echo "status=${{ steps.prestaflow.outputs.status }}"
