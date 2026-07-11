@@ -1,0 +1,48 @@
+name: PrestaFlow v2 (Flashlight)
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  prestaflow:
+    name: Run PrestaFlow tests via github-action@v2
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP 8.2
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: gd
+          tools: composer:v2
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
+
+      - name: Run PrestaFlow
+        id: prestaflow
+        uses: PrestaFlow/github-action@v2
+        with:
+          token: ${{ secrets.PRESTAFLOW_TOKEN }}
+          projectId: '42'
+          flashlight: true
+          ps-version: '9.0.0'
+          upload-artifacts: true
+        continue-on-error: true
+
+      - name: Show outputs
+        run: |
+          echo "id=${{ steps.prestaflow.outputs.id }}"
+          echo "passed=${{ steps.prestaflow.outputs.passed }}"
+          echo "failed=${{ steps.prestaflow.outputs.failed }}"
+          echo "total=${{ steps.prestaflow.outputs.total }}"
+          echo "status=${{ steps.prestaflow.outputs.status }}"
