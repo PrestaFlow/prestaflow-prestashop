@@ -4,29 +4,32 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Shop\\": "src/"
+            "Shop\\": "tests/PrestaFlow/Shop/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "Tests/"
+            "Tests\\": "tests/"
         }
     },
     "scripts": {
         "prestaflow:base": "./vendor/prestaflow/php-library/bin/prestaflow run",
-        "prestaflow:default": "@prestaflow:base ./Tests",
-        "prestaflow:json": "./vendor/prestaflow/php-library/bin/prestaflow run --output=JSON ./Tests",
-        "prestaflow:json:file": "./vendor/prestaflow/php-library/bin/prestaflow run --output=JSON ./Tests --file"
+        "prestaflow:default": "@prestaflow:base ./tests",
+        "prestaflow:json": "./vendor/prestaflow/php-library/bin/prestaflow run --output=JSON ./tests",
+        "prestaflow:json:file": "./vendor/prestaflow/php-library/bin/prestaflow run --output=JSON ./tests --file"
     },
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
         "sort-packages": true,
-        "platform-check": false
+        "platform-check": false,
+        "platform": {
+            "php": "8.2.32"
+        }
     },
     "minimum-stability": "stable",
     "prefer-stable": true,
-    "require": {
-        "prestaflow/php-library": "^1.0"
+    "require-dev": {
+        "prestaflow/php-library": "^1.5.2"
     }
 }
