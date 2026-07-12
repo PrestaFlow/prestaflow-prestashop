@@ -2,7 +2,7 @@
 
 namespace Tests\PrestaFlow\Shop\Pages\v9\Front\GuestTracking;
 
-use PrestaFlow\Library\Pages\v9\FrontOffice\Page as BasePage;
+use PrestaFlow\Library\Pages\Common\FrontOffice\Page as BasePage;
 
 class Page extends BasePage
 {
