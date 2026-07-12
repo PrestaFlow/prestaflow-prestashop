@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "53db6d943361bac0c8e89c647b4d3303",
+    "content-hash": "37446a2382ed2b187820e47c73b7ed86",
     "packages": [],
     "packages-dev": [
         {
@@ -528,16 +528,16 @@
         },
         {
             "name": "prestaflow/php-library",
-            "version": "v1.5.1",
+            "version": "v1.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PrestaFlow/php-library.git",
-                "reference": "f01a6cfad79f3894342ba211a32715fd3693978d"
+                "reference": "ea12978890449d35267488f048c4be4e244eceb1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PrestaFlow/php-library/zipball/f01a6cfad79f3894342ba211a32715fd3693978d",
-                "reference": "f01a6cfad79f3894342ba211a32715fd3693978d",
+                "url": "https://api.github.com/repos/PrestaFlow/php-library/zipball/ea12978890449d35267488f048c4be4e244eceb1",
+                "reference": "ea12978890449d35267488f048c4be4e244eceb1",
                 "shasum": ""
             },
             "require": {
@@ -571,7 +571,7 @@
             "description": "PrestaFlow is an open-source set of prebuilt tests components, ready-to-use examples made for the PrestaShop E-commerce software.",
             "support": {
                 "issues": "https://github.com/PrestaFlow/php-library/issues",
-                "source": "https://github.com/PrestaFlow/php-library/tree/v1.5.1"
+                "source": "https://github.com/PrestaFlow/php-library/tree/v1.5.2"
             },
             "funding": [
                 {
@@ -583,7 +583,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-07-11T19:17:42+00:00"
+            "time": "2026-07-12T07:27:11+00:00"
         },
         {
             "name": "psr/container",

@@ -30,6 +30,6 @@
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require-dev": {
-        "prestaflow/php-library": "^1.5.1"
+        "prestaflow/php-library": "^1.5.2"
     }
 }
